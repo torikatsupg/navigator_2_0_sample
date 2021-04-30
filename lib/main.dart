@@ -1,65 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:navigator_2_sample/book_detail_page.dart';
+import 'package:navigator_2_sample/book_list_screen.dart';
+
+import 'book.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(BooksApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class BooksApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => BooksAppState();
+}
+
+class BooksAppState extends State<BooksApp> {
+  Book? _selectedBook;
+  List<Book> books = [
+    Book('Left Hand of Darkness', 'Ursula K. Le Guin'),
+    Book('Too Like the Lightning', 'Ada Palmer'),
+    Book('Kindred', 'Octavia E. Butler'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      title: 'book app',
+      home: Navigator(
+        pages: [
+          BookListPage(books: books, onTapped: _handleOnTapped),
+          if (_selectedBook != null) BookDetailPage(_selectedBook!)
+        ],
+        onPopPage: (route, result) {
+          if (!route.didPop(result)) return false;
+          setState(() {
+            _selectedBook = null;
+          });
+          return true;
+        },
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, this.title}) : super(key: key);
-  final String? title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
+  void _handleOnTapped(Book book) {
     setState(() {
-      _counter++;
+      _selectedBook = book;
     });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title!),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
-    );
   }
 }
