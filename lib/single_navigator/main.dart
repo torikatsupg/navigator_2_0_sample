@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:navigator_2_sample/navigator/book_route_delegate.dart';
-import 'package:navigator_2_sample/navigator/book_route_information_parser.dart';
+import 'package:navigator_2_sample/single_navigator/navigator/book_route_delegate.dart';
+import 'package:navigator_2_sample/single_navigator/navigator/book_route_information_parser.dart';
 
 void main() {
   runApp(BooksApp());

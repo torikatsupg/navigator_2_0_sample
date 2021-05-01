@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:navigator_2_sample/model/book.dart';
-import 'package:navigator_2_sample/page/book_detail_page.dart';
-import 'package:navigator_2_sample/page/book_list_page.dart';
-import 'package:navigator_2_sample/navigator/book_route_path.dart';
-import 'package:navigator_2_sample/page/unknown_page.dart';
+import 'package:navigator_2_sample/single_navigator/model/book.dart';
+import 'package:navigator_2_sample/single_navigator/page/book_detail_page.dart';
+import 'package:navigator_2_sample/single_navigator/page/book_list_page.dart';
+import 'package:navigator_2_sample/single_navigator/navigator/book_route_path.dart';
+import 'package:navigator_2_sample/single_navigator/page/unknown_page.dart';
 
 class BookRouteDelegate extends RouterDelegate<BookRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<BookRoutePath> {

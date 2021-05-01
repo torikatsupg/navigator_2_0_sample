@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navigator_2_sample/model/book.dart';
+import 'package:navigator_2_sample/single_navigator/model/book.dart';
 
 class BookDetailPage extends Page {
   const BookDetailPage(this.book, {LocalKey? key}) : super(key: key);
