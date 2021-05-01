@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navigator_2_sample/book.dart';
+import 'package:navigator_2_sample/model/book.dart';
 
 class BookListPage extends Page {
   const BookListPage(

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:navigator_2_sample/book_detail_page.dart';
-import 'package:navigator_2_sample/book_list_screen.dart';
-import 'package:navigator_2_sample/book_route_path.dart';
-import 'package:navigator_2_sample/unknown_page.dart';
-
-import 'book.dart';
+import 'package:navigator_2_sample/model/book.dart';
+import 'package:navigator_2_sample/page/book_detail_page.dart';
+import 'package:navigator_2_sample/page/book_list_page.dart';
+import 'package:navigator_2_sample/navigator/book_route_path.dart';
+import 'package:navigator_2_sample/page/unknown_page.dart';
 
 class BookRouteDelegate extends RouterDelegate<BookRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<BookRoutePath> {
@@ -82,4 +81,36 @@ class BookRouteDelegate extends RouterDelegate<BookRoutePath>
     _selectedBook = book;
     notifyListeners();
   }
+}
+
+
+class RD extends RouterDelegate {
+  @override
+  void addListener(listener) {
+    // TODO: implement addListener
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> popRoute() {
+    // TODO: implement popRoute
+    throw UnimplementedError();
+  }
+
+  @override
+  void removeListener(listener) {
+    // TODO: implement removeListener
+  }
+
+  @override
+  Future<void> setNewRoutePath(configuration) {
+    // TODO: implement setNewRoutePath
+    throw UnimplementedError();
+  }
+
 }
